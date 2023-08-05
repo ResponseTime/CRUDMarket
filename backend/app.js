@@ -21,7 +21,20 @@ app.get("/products", async (req, res) => {
   }
   res.json(js);
 });
-app.post("/product/add", (req, res) => {});
+app.post("/product/add", async (req, res) => {
+  let { productN, productP, postedB } = req.body;
+  let col = await db.collection("products");
+  let ack = await col.insertOne({
+    productName: productN,
+    price: productP,
+    postedby: postedB,
+  });
+  if (ack.acknowledged === true) {
+    res.json({ Inserted: 1 });
+  } else {
+    res.json({ Inserted: 0 });
+  }
+});
 app.delete("/product/:id", (req, res) => {});
 app.put("/product/:id", (req, res) => {});
 

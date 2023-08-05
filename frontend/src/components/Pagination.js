@@ -6,14 +6,8 @@ export default function Pagination({ itemsPerPage, totalItems, paginate }) {
     pageNumber.push(i);
   }
   return (
-    <div>
-      <ul
-        style={{
-          display: "flex",
-          "justify-content": "flex-start",
-          listStyle: "none",
-        }}
-      >
+    <div className="pagination">
+      <ul>
         {pageNumber.map((num) => {
           return (
             <li>

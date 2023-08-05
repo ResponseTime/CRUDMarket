@@ -5,10 +5,16 @@ export default function Itemsi(props) {
     return <h2>Loading...</h2>;
   }
   return (
-    <ul>
+    <div className="Items">
       {props.items.map((item) => {
-        return <li key={item._id}>{item.ProductName}</li>;
+        return (
+          <div className="Item" key={item._id}>
+            {item.ProductName}
+            <div>Price Rs {item.Price}</div>
+            <div>Posted By {item.PostedBy}</div>
+          </div>
+        );
       })}
-    </ul>
+    </div>
   );
 }

@@ -8,7 +8,7 @@ function App() {
   const [items, setItems] = useState([]);
   const [loading, setloading] = useState(false);
   const [pageNumber, setPageNumber] = useState(1);
-  const [itemsPerPage] = useState(2);
+  const [itemsPerPage] = useState(3);
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -28,7 +28,7 @@ function App() {
   };
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <Itemsi items={currentItem} loading={loading} />
       <Pagination
         itemsPerPage={itemsPerPage}

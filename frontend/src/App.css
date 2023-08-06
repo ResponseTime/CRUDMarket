@@ -59,28 +59,32 @@
 }
 .pagination{
     position: fixed;
-    bottom:0;
+    bottom:0%;
+    background-color: white;
     width: 100%;
     z-index: 4;
+    right: 0;
 }
 .pagination > ul,li{
     display: flex;
     justify-content:center;
     list-style:none;
     padding: 10px 10px;
+
     
 }
 .pagination >ul>li{
-    margin: 10px 2px;
-    border: 1px solid black;
-    border-radius: 20px;
+    margin: 0px 2px;
+    border: 1px solid rgb(75, 75, 83);
+    border-radius: 30px;
    
 }
 .pagination >ul>li>a{
     text-decoration: none;
     font-size: 1.2rem;
-
+    color: black;
 }
+
 .img{
     width:300px;
     height:300px;
@@ -90,6 +94,7 @@
 
 }
 .cate{
+    margin-top: 5px;
     border-top:1px solid gray;
     font-size: 15px;
     font-style: italic;

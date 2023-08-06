@@ -1,13 +1,23 @@
+require("dotenv").config();
+const { MongoClient } = require("mongodb");
 const express = require("express");
 const app = express();
 const path = require("path");
 const cors = require("cors");
-let db = require("./db.js");
+const uri = process.env.MONGO_URI;
+const client = new MongoClient(uri);
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+client.connect((err) => {
+  if (err) {
+    console.error(err);
+    return false;
+  }
+});
 var id = 21;
 app.get("/products", async (req, res) => {
+  let db = client.db("Project");
   let col = await db.collection("products");
   let data = await col.find();
   let js = [];
@@ -26,6 +36,7 @@ app.get("/products", async (req, res) => {
   res.json(js);
 });
 app.post("/product/add", async (req, res) => {
+  let db = client.db("Project");
   let { title, price, desc, category, imageUrl, rating } = req.body;
   let col = await db.collection("products");
   let ack = await col.insertOne({
@@ -43,8 +54,8 @@ app.post("/product/add", async (req, res) => {
     res.json({ Inserted: 0 });
   }
 });
-app.delete("/product/:id", (req, res) => {});
-app.put("/product/:id", (req, res) => {});
+// app.delete("/product/:id", (req, res) => {});
+// app.put("/product/:id", (req, res) => {});
 
 app.listen(5000, () => {
   console.log("running");

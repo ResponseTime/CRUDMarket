@@ -13,7 +13,9 @@ function App() {
   useEffect(() => {
     const fetchItems = async () => {
       setloading(true);
-      const res = await axios.get("http://localhost:5000/products");
+      const res = await axios.get(
+        "https://items-api-6asw.onrender.com/products"
+      );
       setItems(res.data);
       setloading(false);
     };

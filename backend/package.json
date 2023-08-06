@@ -4,8 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node app.js",
+    "build": "node app.js",
+    "dev": "nodemon app.js"
   },
   "author": "ResponseTime",
   "license": "ISC",

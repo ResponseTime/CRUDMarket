@@ -8,7 +8,7 @@ function App() {
   const [items, setItems] = useState([]);
   const [loading, setloading] = useState(false);
   const [pageNumber, setPageNumber] = useState(1);
-  const [itemsPerPage] = useState(3);
+  const [itemsPerPage] = useState(10);
 
   useEffect(() => {
     const fetchItems = async () => {

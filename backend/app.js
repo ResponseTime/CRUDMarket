@@ -6,28 +6,36 @@ let db = require("./db.js");
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+var id = 21;
 app.get("/products", async (req, res) => {
   let col = await db.collection("products");
   let data = await col.find();
   let js = [];
   for await (let col of data) {
     json = {
-      ProductName: col.productName,
+      id: col.id,
+      Title: col.title,
       Price: col.price,
-      PostedBy: col.postedby,
+      Desc: col.description,
+      Category: col.category,
+      ImageUrl: col.image,
+      Rating: col.rating,
     };
     js.push(json);
   }
   res.json(js);
 });
 app.post("/product/add", async (req, res) => {
-  let { productN, productP, postedB } = req.body;
+  let { title, price, desc, category, imageUrl, rating } = req.body;
   let col = await db.collection("products");
   let ack = await col.insertOne({
-    productName: productN,
-    price: productP,
-    postedby: postedB,
+    id: id++,
+    title: title,
+    price: price,
+    description: desc,
+    category: category,
+    image: imageUrl,
+    rating: rating,
   });
   if (ack.acknowledged === true) {
     res.json({ Inserted: 1 });

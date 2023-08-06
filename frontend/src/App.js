@@ -14,7 +14,7 @@ function App() {
     const fetchItems = async () => {
       setloading(true);
       const res = await axios.get(
-        "https://items-api-6asw.onrender.com/products"
+        "https://items-api-v1-n89d.onrender.com/products"
       );
       setItems(res.data);
       setloading(false);

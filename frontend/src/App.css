@@ -7,13 +7,14 @@
     width: 100%;
     background-color:white;
     height: 90px;
-    filter: drop-shadow(0 1px 10px gray);
+    filter: drop-shadow(0 1px 10px rgb(99, 94, 21));
     position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
     z-index: 3;
+    background-color:rgb(240, 236, 229);
 }
 .nav-col{
     width: 100%;
@@ -40,10 +41,11 @@
     display:grid;
     width: 100%;
     grid-gap: 20px;
-    padding: 15px;
+    padding: 65px;
     grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
     z-index: 2;
     justify-items: center;
+    margin-bottom: 40px;
 }
 .Item{
     display: flex;
@@ -76,13 +78,14 @@
 .pagination >ul>li{
     margin: 0px 2px;
     border: 1px solid rgb(75, 75, 83);
-    border-radius: 30px;
+    border-radius: 20px;
    
 }
 .pagination >ul>li>a{
     text-decoration: none;
     font-size: 1.2rem;
     color: black;
+    cursor: pointer;
 }
 
 .img{
@@ -112,7 +115,7 @@
     .Item{
         display: flex;
         width: 350px;
-        height:600px;
+        height:665px;
         flex-flow: column nowrap;
         align-items: center;
         padding: 10px 10px;
@@ -127,5 +130,27 @@
         grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
         z-index: 2;
         justify-items: center;
+        margin-bottom: 50px;
     }
+    .pagination{
+        position: fixed;
+        bottom:0%;
+        background-color: white;
+        width: 100%;
+        z-index: 4;
+        right: 0;
+        margin-bottom: -10px;
+    }
+}
+.util{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+.util > button{
+    margin: 0px 5px;
+    font-size: 1.2em;
+    border-radius: 35px;
+    padding: 0px 5px;
+    cursor: pointer;
 }

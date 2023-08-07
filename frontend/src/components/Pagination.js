@@ -15,7 +15,6 @@ export default function Pagination({ itemsPerPage, totalItems, paginate }) {
                 onClick={() => {
                   paginate(num);
                 }}
-                href="!#"
               >
                 {num}
               </a>

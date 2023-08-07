@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, Fragment } from "react";
 import "./App.css";
 import axios from "axios";
 import Navbar from "./components/Navbar";
 import Itemsi from "./components/Itemsi";
 import Pagination from "./components/Pagination";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   const [items, setItems] = useState([]);
   const [loading, setloading] = useState(false);
   const [pageNumber, setPageNumber] = useState(1);
-  const [itemsPerPage] = useState(10);
+  const [itemsPerPage] = useState(12);
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -30,13 +31,23 @@ function App() {
   };
   return (
     <>
-      <Navbar />
-      <Itemsi items={currentItem} loading={loading} />
-      <Pagination
-        itemsPerPage={itemsPerPage}
-        totalItems={items.length}
-        paginate={paginate}
-      />
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Itemsi
+                items={currentItem}
+                loading={loading}
+                itemsPerPage={itemsPerPage}
+                itemslen={items.length}
+                paginate={paginate}
+              />
+            }
+          />
+        </Routes>
+      </Router>
     </>
   );
 }

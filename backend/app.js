@@ -59,7 +59,7 @@ app.post("/product/add", async (req, res) => {
 app.delete("/delete/product/:id", async (req, res) => {
   let db = client.db("Project");
   let coll = await db.collection("products");
-  let del = await coll.deleteOne({ id: req.params.id });
+  let del = await coll.deleteOne({ id: parseInt(req.params.id) });
   res.json(del);
 });
 // app.put("/product/:id", (req, res) => {});

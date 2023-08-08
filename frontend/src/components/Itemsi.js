@@ -23,7 +23,11 @@ export default function Itemsi(props) {
                     : item.Title}
                 </span>
                 <span className="price">&#8377;{item.Price}</span>
-                <span className="desc">{item.Desc.substring(0, 200)}...</span>
+                <span className="desc">
+                  {item.Desc.length > 100
+                    ? item.Desc.substring(0, 100) + "..."
+                    : item.Desc}
+                </span>
               </div>
               <div className="util">
                 <button

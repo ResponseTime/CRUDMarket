@@ -16,13 +16,17 @@
     z-index: 3;
     background-color:rgb(240, 236, 229);
 }
+.navbar>h1>a{
+ text-decoration: none;
+ color: black;
+}
+
 .nav-col{
     width: 100%;
     background-color:black;
     transition: all 0.5s ease-in-out;
     height: 90px;
     filter: drop-shadow(0 1px 10px rgb(0, 0, 0));   
-    color: white;
     position: fixed;
     display: flex;
     justify-content: space-between;
@@ -30,7 +34,10 @@
     padding: 10px;
     z-index: 3;
 }
-
+.nav-col>h1>a{
+    text-decoration: none;
+    color: white;
+}
 .search > input[type="text"]{
     border-radius: 10px;
     padding: 5px 10px;
@@ -153,4 +160,38 @@
     border-radius: 35px;
     padding: 0px 5px;
     cursor: pointer;
+}
+.newinf{
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+   
+}
+.newinf > form{
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+    background-color:rgb(240, 236, 229);
+   
+}
+.newinf > form > input,textarea{
+ width: 300px;  
+ margin: 10px 10px;
+ padding: 10px 20px;
+}
+.newinf>form>input[type="file"]{
+    padding: 1px;
+}
+.search > a{
+    padding:10px 20px;
+    border-radius: 40px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.6em;
+    color: brown;
+    font-weight: bolder;
 }

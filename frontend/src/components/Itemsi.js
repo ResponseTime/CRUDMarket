@@ -1,9 +1,13 @@
 import React from "react";
 import Pagination from "./Pagination";
+import axios from "axios";
 export default function Itemsi(props) {
   if (props.loading) {
     return <h2>Loading...</h2>;
   }
+  const handle = (id) => {
+    axios.delete(`https://items-api-v1-n89d.onrender.com/delete/product/${id}`);
+  };
   return (
     <>
       <div className="Items">
@@ -24,7 +28,14 @@ export default function Itemsi(props) {
                 <span className="desc">{item.Desc.substring(0, 200)}...</span>
               </div>
               <div className="util">
-                <button>Delete Item</button> <button>Update Item</button>
+                <button
+                  onClick={() => {
+                    handle(item.id);
+                  }}
+                >
+                  Delete Item
+                </button>{" "}
+                <button>Update Item</button>
               </div>
             </div>
           );

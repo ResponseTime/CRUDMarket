@@ -15,7 +15,6 @@ client.connect((err) => {
     return false;
   }
 });
-var id = 21;
 app.get("/products", async (req, res) => {
   let db = client.db("Project");
   let col = await db.collection("products");
@@ -36,11 +35,14 @@ app.get("/products", async (req, res) => {
   res.json(js);
 });
 app.post("/product/add", async (req, res) => {
+  let id =
+    req.body.title.substring(0, req.body.title.length - 3) +
+    Math.floor(Math.random() * 10);
   let db = client.db("Project");
   let { title, price, desc, category, imageUrl, rating } = req.body;
   let col = await db.collection("products");
   let ack = await col.insertOne({
-    id: id++,
+    id: id,
     title: title,
     price: price,
     description: desc,
@@ -54,7 +56,11 @@ app.post("/product/add", async (req, res) => {
     res.json({ Inserted: 0 });
   }
 });
-// app.delete("/product/:id", (req, res) => {});
+app.delete("/delete/product/:id", async (req, res) => {
+  let db = client.db("Project");
+  let coll = await db.collection("products");
+  await coll.deleteOne({ id: req.params.id });
+});
 // app.put("/product/:id", (req, res) => {});
 
 app.listen(5000, () => {

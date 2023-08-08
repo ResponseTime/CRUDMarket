@@ -3,8 +3,8 @@ import "./App.css";
 import axios from "axios";
 import Navbar from "./components/Navbar";
 import Itemsi from "./components/Itemsi";
-import Pagination from "./components/Pagination";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import New_prod from "./components/New_prod";
 function App() {
   const [items, setItems] = useState([]);
   const [loading, setloading] = useState(false);
@@ -46,6 +46,7 @@ function App() {
               />
             }
           />
+          <Route path="/new" element={<New_prod />} />
         </Routes>
       </Router>
     </>

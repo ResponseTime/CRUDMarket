@@ -1,13 +1,11 @@
 import React from "react";
 import Pagination from "./Pagination";
-import axios from "axios";
+
 export default function Itemsi(props) {
   if (props.loading) {
     return <h2>Loading...</h2>;
   }
-  const handle = (id) => {
-    axios.delete(`https://items-api-v1-n89d.onrender.com/delete/product/${id}`);
-  };
+
   return (
     <>
       <div className="Items">
@@ -30,7 +28,10 @@ export default function Itemsi(props) {
               <div className="util">
                 <button
                   onClick={() => {
-                    handle(item.id);
+                    fetch(
+                      `https://items-api-v1-n89d.onrender.com/delete/product/${item.id}`,
+                      { method: "DELETE" }
+                    );
                   }}
                 >
                   Delete Item

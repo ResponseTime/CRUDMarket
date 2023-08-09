@@ -5,7 +5,6 @@ export default function Itemsi(props) {
   if (props.loading) {
     return <h2>Loading...</h2>;
   }
-
   return (
     <>
       <div className="Items">
@@ -42,7 +41,7 @@ export default function Itemsi(props) {
                   Delete Item
                 </button>{" "}
                 <button className="up">
-                  <Link to="/update" id={item.id}>
+                  <Link to="/update" state={item.id}>
                     Update Item
                   </Link>
                 </button>

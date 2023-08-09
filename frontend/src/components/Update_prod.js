@@ -1,11 +1,13 @@
 import React from "react";
-
+import { useLocation } from "react-router-dom";
 export default function Update_prod(props) {
+  const location = useLocation();
+  console.log(location.state);
   return (
     <>
       <div className="newinf">
         <form
-          action={`https://items-api-v1-n89d.onrender.com/product/update/${props.id}`}
+          action={`https://items-api-v1-n89d.onrender.com/product/update/${location.state}`}
           method="post"
         >
           <input

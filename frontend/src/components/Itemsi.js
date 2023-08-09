@@ -1,6 +1,6 @@
 import React from "react";
 import Pagination from "./Pagination";
-
+import { Link } from "react-router-dom";
 export default function Itemsi(props) {
   if (props.loading) {
     return <h2>Loading...</h2>;
@@ -31,16 +31,21 @@ export default function Itemsi(props) {
               </div>
               <div className="util">
                 <button
-                  onClick={() => {
-                    fetch(
+                  onClick={async () => {
+                    await fetch(
                       `https://items-api-v1-n89d.onrender.com/delete/product/${item.id}`,
                       { method: "DELETE" }
                     );
+                    window.location.reload();
                   }}
                 >
                   Delete Item
                 </button>{" "}
-                <button>Update Item</button>
+                <button className="up">
+                  <Link to="/update" id={item.id}>
+                    Update Item
+                  </Link>
+                </button>
               </div>
             </div>
           );

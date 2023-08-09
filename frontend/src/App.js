@@ -1,8 +1,9 @@
 import { useEffect, useState, Fragment } from "react";
 import "./App.css";
 import axios from "axios";
-import Navbar from "./components/Navbar";
 import Itemsi from "./components/Itemsi";
+import Navbar from "./components/Navbar";
+import Update from "./components/Update_prod";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import New_prod from "./components/New_prod";
 function App() {
@@ -47,6 +48,7 @@ function App() {
             }
           />
           <Route path="/new" element={<New_prod />} />
+          <Route path="/update" element={<Update />} />
         </Routes>
       </Router>
     </>

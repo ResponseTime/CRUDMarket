@@ -62,7 +62,12 @@ app.delete("/delete/product/:id", async (req, res) => {
   let del = await coll.deleteOne({ id: parseInt(req.params.id) });
   res.json(del);
 });
-// app.put("/product/:id", (req, res) => {});
+app.put("/product/update/:id", async (req, res) => {
+  let db = client.db("Project");
+  let coll = await db.collection("products");
+  let update = await coll.updateOne({ id: parseInt(req.params.id) });
+  res.json(update);
+});
 
 app.listen(5000, () => {
   console.log("running");

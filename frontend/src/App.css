@@ -125,9 +125,15 @@
 .desc{
     padding:20px 0px;
     font-size: 20px;
+    width: 400px;
 }
 
 @media only screen and (max-width: 820px){
+    .desc{
+        padding:20px 0px;
+        font-size: 20px;
+        width: 350px;
+    }
     .Item{
         display: flex;
         width: 350px;
@@ -202,4 +208,9 @@
 }
 .newinf>form>input[type="file"]{
     padding: 1px;
+}
+
+.up>a{
+    text-decoration: none;
+    color: black;
 }

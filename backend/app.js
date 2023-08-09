@@ -63,9 +63,22 @@ app.delete("/delete/product/:id", async (req, res) => {
   res.json(del);
 });
 app.post("/product/update/:id", async (req, res) => {
+  let { title, price, desc, category, imageUrl, rating } = req.body;
   let db = client.db("Project");
   let coll = await db.collection("products");
-  let update = await coll.updateOne({ id: parseInt(req.params.id) });
+  let update = await coll.updateOne(
+    { id: parseInt(req.params.id) },
+    {
+      $set: {
+        title: title,
+        price: price,
+        description: desc,
+        category: category,
+        imageUrl: imageUrl,
+        rating: rating,
+      },
+    }
+  );
   res.json(update);
 });
 

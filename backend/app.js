@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 client.connect((err) => {
   if (err) {
     console.error(err);
-    return false;
+    return;
   }
 });
 app.get("/products", async (req, res) => {

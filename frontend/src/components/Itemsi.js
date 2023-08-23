@@ -1,9 +1,10 @@
 import React from "react";
 import Pagination from "./Pagination";
 import { Link } from "react-router-dom";
+import Spinner from "./Spinner";
 export default function Itemsi(props) {
   if (props.loading) {
-    return <h2>Loading...</h2>;
+    return <Spinner />;
   }
   return (
     <>

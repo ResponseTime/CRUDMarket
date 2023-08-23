@@ -214,3 +214,9 @@
     text-decoration: none;
     color: black;
 }
+
+.spinner{
+    position: absolute;
+    top: 10%;
+    left: 48%;
+}
